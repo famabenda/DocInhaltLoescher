@@ -20,7 +20,7 @@ public class FileLeser {
 		// reader = new FileReader()
 	}
 
-	public String askForString(String text) {
+	public static String askForString(String text) {
 		System.out.print(text);
 		return sc.nextLine();
 	}

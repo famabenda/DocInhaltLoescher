@@ -5,5 +5,8 @@ public class Steuerung {
 		fileLeser = new FileLeser();
 		
 	}
+	private String frageNutzerNachFilter() {
+		FileLeser.
+	}
 	
 }
