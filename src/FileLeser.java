@@ -7,28 +7,46 @@ public class FileLeser {
 	private FileReader reader;
 	private File file;
 	private Scanner sc;
-	private String[] pfadListe;
+	private ArrayList<String> pfadListe;
 
 	public FileLeser() {
 		sc = new Scanner(System.in);
-		pfadListe=lesePfadeEin();
+		pfadListe = new ArrayList<>();
+
 		gebePfadListeAus();
 	}
 
 	public void leseDateiEin() {
-//		reader = new FileReader()
+		// reader = new FileReader()
 	}
 
 	public String askForString(String text) {
 		System.out.print(text);
 		return sc.nextLine();
 	}
-	public String[] lesePfadeEin() {
+
+	public ArrayList<String> lesePfadeEin() {
 		file = new File(askForString("Geben Sie einen Ordnerpfad ein, in dem die die Dateien bearbeiten wollen: "));
-		return file.list();
+		String[] pfadListe = file.list();
+		ArrayList<String> pfadArrayList = new ArrayList<>();
+		for (String pfad : pfadListe) {
+			pfadArrayList.add(pfad);
+		}
+		return pfadArrayList;
 	}
+
+	public ArrayList<File> leseDateienEin() {
+		pfadListe = lesePfadeEin();
+		ArrayList<File> fileListe = new ArrayList();
+		for (int i = 0; i < fileListe.size(); i++) {
+			fileListe.add(new File(pfadListe.get(i)));
+		}
+		return fileListe;
+
+	}
+
 	public void gebePfadListeAus() {
-		for(String text : pfadListe) {
+		for (String text : pfadListe) {
 			System.out.println(text);
 		}
 	}
