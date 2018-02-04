@@ -5,8 +5,7 @@ import java.util.Scanner;
 
 public class FileLeser {
 	private FileReader reader;
-	private File file;
-	private Scanner sc;
+	private static Scanner sc;
 	private ArrayList<String> pfadListe;
 
 	public FileLeser() {
@@ -26,6 +25,7 @@ public class FileLeser {
 	}
 
 	public ArrayList<String> lesePfadeEin() {
+		File file;
 		file = new File(askForString("Geben Sie einen Ordnerpfad ein, in dem die die Dateien bearbeiten wollen: "));
 		String[] pfadListe = file.list();
 		ArrayList<String> pfadArrayList = new ArrayList<>();
@@ -49,6 +49,10 @@ public class FileLeser {
 		for (String text : pfadListe) {
 			System.out.println(text);
 		}
+	}
+
+	public ArrayList<String> getPfadListe() {
+		return pfadListe;
 	}
 
 }
